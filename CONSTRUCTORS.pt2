@@ -1,0 +1,133 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class User_Name{
+    private:
+        string user_name;
+    public:
+        User_Name(string z_user_name){
+            setUser_Name(z_user_name);
+        }
+        void setUser_Name(string x_user_name){
+            user_name = x_user_name;
+        }
+        string getUser_Name(){
+            return user_name;
+        }
+};
+class User_Age{
+    private:
+        int user_age;
+    public:
+        User_Age(int z_user_age){
+            setUser_Age(z_user_age);
+        }
+        void setUser_Age(int x_user_age){
+            user_age = x_user_age;
+        }
+        int getUser_Age(){
+            return user_age;
+        }
+};
+class Pet_Name{
+    private:
+        string pet_name;
+    public:
+        Pet_Name(string z_pet_name){
+            setPet_Name(z_pet_name);
+        }
+        void setPet_Name(string x_pet_name){
+            pet_name = x_pet_name;
+        }
+        string getPet_Name(){
+            return pet_name;
+        }
+};
+class Pet_Age{
+    private:
+        int pet_age;
+    public:
+        Pet_Age(int z_pet_age){
+            setPet_Age(z_pet_age);
+        }
+        void setPet_Age(int x_pet_age){
+            pet_age = x_pet_age;
+        }
+        int getPet_Age(){
+            return pet_age;
+        }
+};
+class Father_Name{
+    private:
+        string father_name;
+    public:
+        Father_Name(string z_father_name){
+            setFather_Name(z_father_name);
+        }
+        void setFather_Name(string x_father_name){
+            father_name = x_father_name;
+        }
+        string getFather_Name(){
+            return father_name;
+        }
+};
+class Father_Age{
+    private:
+        int father_age;
+    public:
+        Father_Age(int z_father_age){
+            setFather_Age(z_father_age);
+        }
+        void setFather_Age(int x_father_age){
+            father_age = x_father_age;
+        }
+        int getFather_Age(){
+            return father_age;
+        }
+};
+class Mother_Name{
+    private:
+        string mother_name;
+    public:
+        Mother_Name(string z_mother_name){
+            setMother_Name(z_mother_name);
+        }
+        void setMother_Name(string x_mother_name){
+            mother_name = x_mother_name;
+        }
+        string getMother_Name(){
+            return mother_name;
+        }
+};
+class Mother_Age{
+    private:
+        int mother_age;
+    public:
+        Mother_Age(int z_mother_age){
+            setMother_Age(z_mother_age);
+        }
+        void setMother_Age(int x_mother_age){
+            mother_age = x_mother_age;
+        }
+        int getMother_Age(){
+            return mother_age;
+        }
+};
+
+int main(){
+    User_Name O_U_N("Youssef");
+    User_Age O_U_A(16);
+    Pet_Name O_P_N("Mel");
+    Pet_Age O_P_A(3);
+    Father_Name O_F_N("Alawawawwa");
+    Father_Age O_F_A(52);
+    Mother_Name O_M_N("Milawawawawaw");
+    Mother_Age O_M_A(41);
+
+    cout << O_F_N.getFather_Name() << " met " << O_M_N.getMother_Name() << " and they had " << O_U_N.getUser_Name() << " and He has a pet named "
+    << O_P_N.getPet_Name() << ".\nToday " << O_F_N.getFather_Name() << " is " << O_F_A.getFather_Age() << " years old, " << O_M_N.getMother_Name() <<
+    " is " << O_M_A.getMother_Age() << " years old\n" << O_U_N.getUser_Name() << " is " << O_U_A.getUser_Age() << " years old, and his pet "
+    << O_P_N.getPet_Name() << " is " << O_P_A.getPet_Age() << " months old." << endl;
+    return 0;
+}
