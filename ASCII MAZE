@@ -1,0 +1,124 @@
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+#include "windows.h";
+using namespace std;
+
+char map [20][30] = {
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "X@X XXXXXXXXXXXXXXXXXX      X",
+    "X X X     XX    X           X",
+    "X X X X X XX    X           X",
+    "X X X X X XX    X           X",
+    "X X X X X XXX X X           X",
+    "X X X X X XX  X X           X",
+    "X X X X X     X XXXXXXXXXXXXX",
+    "X X X X X XX  X          $$$X",
+    "X X X X X XX  X XXXXXXXXXXXXX",
+    "X X X X X XX  X XXXXXXXXXXXXX",
+    "X X X X X XX  X          $$ X",
+    "X X X X X XX  XXXXXXXX  XXXXX",
+    "X X X X X XX  XXXXXXX  XXXXXX",
+    "X X X X X XX  XXXXXX  XXXXXXX",
+    "X X X X X XX$$XXXXXXX  XXXXXX",
+    "X X X X$X XX$$XXXXXXXX  XXXXX",
+    "X XXX XXX XXXXXXXXXXXXX  XXXX",
+    "X             $$$X$$$    $$$X",
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+};
+int x = 1;
+int y = 1;
+bool game_running = true;
+
+void gameover(string x_user_name, int x_user_point);
+
+int main(){
+
+    string user_name;
+    int user_point = 0;
+    cout << "\n\nPara jogar use as setas do seu teclado :D" << endl;
+    cout << "Digite seu nome: " << endl;
+    cin >> user_name;
+
+    while(game_running == true){
+        system("cls");
+
+        cout << "\n=====ASCII=====LABIRINTO=====\n";
+        cout << "      jogador: " << user_name << endl;
+        cout << "      pontos: " << user_point << endl;
+
+        for(int display = 0; display < 20; display ++){
+            cout << map[display] << endl;
+        }
+        system("pause>nul");
+        system("cls");
+        if(GetAsyncKeyState(VK_DOWN)){
+            int y2 = y+1;
+            if(map[y2][x] == ' '){
+                map[y][x] = ' ';
+                y++;
+                map[y][x] = '@';
+                user_point ++;
+            }else if(map[y2][x] == '$'){
+                user_point += 100;
+                map[y2][x] = ' ';
+                cout << "+100 pontos!";
+            }else{
+                game_running = false;
+            }
+        }
+        if(GetAsyncKeyState(VK_UP)){
+            int y2 = y - 1;
+            if(map[y2][x] == ' '){
+                map[y][x] = ' ';
+                y--;
+                map[y][x] = '@';
+                user_point ++;
+            }else if(map[y2][x] == '$'){
+                user_point += 100;
+                map[y2][x] = ' ';
+                cout << "+100 pontos!";
+            }else{
+                game_running = false;
+            }
+        }
+        if(GetAsyncKeyState(VK_RIGHT)){
+            int x2 = x + 1;
+            if(map[y][x2] == ' '){
+                map[y][x] = ' ';
+                x++;
+                map[y][x] = '@';
+                user_point ++;
+            }else if(map[y][x2] == '$'){
+                user_point += 100;
+                map[y][x2] = ' ';
+                cout << "+100 pontos!";
+            }else{
+                game_running = false;
+            }
+        }
+        if(GetAsyncKeyState(VK_LEFT)){
+            int x2 = x - 1;
+            if(map[y][x2] == ' '){
+                map[y][x] = ' ';
+                x--;
+                map[y][x] = '@';
+                user_point ++;
+            }else if(map[y][x2] == '$'){
+                user_point += 100;
+                map[y][x2] = ' ';
+                cout << "+100 pontos!";
+            }else{
+                game_running = false;
+            }
+        }
+    }
+    gameover(user_name,user_point);
+    system("pause");
+    return 0;
+}
+void gameover(string x_user_name, int x_user_point){
+    system("cls");
+    cout << "GAME OVER\a\n\n" << endl;
+    cout << "\n" << x_user_name <<" morreu com "<< x_user_point << " pontos.\n" << endl;
+}
