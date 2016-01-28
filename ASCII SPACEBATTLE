@@ -1,7 +1,3 @@
-/*ASCII Showdown
-version 1.0
-made by: Shivam Shekhar
-*/
 #include<stdio.h>
 #include<windows.h>
 #include<time.h>
