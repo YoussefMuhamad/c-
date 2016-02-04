@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+int main() {
+
+	//asking for user input
+	std::cout << "Please, enter your first name: ";
+	std::string user_name;
+	//reading user_name
+	std::cin >> user_name;
+
+	//building the message
+	const std::string message = "Hello " + user_name + "!";
+
+	//getting the size of the message to know how many spaces we will need
+	const std::string spaces(message.size(), ' ');
+
+	//building the second and the fourth line
+	const std::string secondLine = "$ " + spaces + " $";
+
+	//building the first and the fifth line
+	const std::string firstLine(secondLine.size(), '$');
+
+	//printing it all
+	std::cout << std::endl;
+	std::cout << firstLine << std::endl;
+	std::cout << secondLine << std::endl;
+	std::cout << "$ " + message + " $" << std::endl;
+	std::cout << secondLine << std::endl;
+	std::cout << firstLine << std::endl;
+	std::cout << std::endl;
+
+	system("pause");
+	return 0;
+}
